@@ -19,9 +19,9 @@ smartUpCycle is a full-stack web platform that:
 ## 🚀 Live Features
 
 ### 🛠 DIY Suggestion Engine
-- Accepts description of a waste item
-- Suggests creative upcycling ideas using predefined logic
-- Displays images and step-by-step guidance
+- Accepts description of a waste item.
+- Suggests creative upcycling ideas using predefined logic.
+- Displays images and step-by-step guidance with youtube tutorials.
 
 ### 🌍 Carbon Footprint Analyzer
 - Calculates your estimated CO₂ emissions based on:
