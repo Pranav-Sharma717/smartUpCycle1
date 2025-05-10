@@ -6,49 +6,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DIY Suggestions | smartUpCycle</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .side-video {
+            position: fixed;
+            top: 0;
+            width: 25vw;
+            height: 100vh;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .left-video {
+            left: 0;
+        }
+        .right-video {
+            right: 0;
+        }
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(240, 249, 244, 0.9), transparent);
+        }
+        .right-video .video-overlay {
+            background: linear-gradient(to left, rgba(240, 249, 244, 0.9), transparent);
+        }
+    </style>
 </head>
 
 <body class="bg-gradient-to-br from-blue-50 to-green-50 text-black font-sans min-h-screen flex flex-col items-center justify-center px-4 py-10">
-    <!-- Background Video or GIF -->
-    <div class="absolute inset-0 -z-10 opacity-20 h-[600px] overflow-hidden">
-        <video autoplay loop muted class="w-full h-full object-cover">
-            <source src="static/media/recycle-bg.mp4" type="video/mp4" />
+    <!-- Left Side Video -->
+    <div class="side-video left-video">
+        <div class="video-overlay"></div>
+        <video autoplay loop muted class="w-full h-full object-cover opacity-20">
+            <source src="static\media\Growing Plant.mp4" type="video/mp4" />
         </video>
     </div>
 
-    <!-- Tagline -->
-    <h1 class="text-3xl md:text-4xl font-bold text-center mb-10">
-        Give the product a second life!
-    </h1>
-
-    <!-- Dashboard Icon (left) -->
-    <a href="dashboard.html" class="text-green-600 mb-6 self-start ml-6">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-            stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-    </a>
-
-    <!-- DIY Description Input -->
-    <div class="w-full max-w-2xl">
-        <form id="diyForm" class="mb-8">
-            <textarea id="descriptionInput" rows="4"
-                placeholder="Describe your waste item here (e.g., old T-shirt, broken chair, plastic bottle)..."
-                class="w-full border border-green-600 rounded px-4 py-3 text-sm focus:outline-none" required></textarea>
-
-            <button type="submit"
-                class="mt-4 px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition">
-                Get DIY Suggestion
-            </button>
-        </form>
+    <!-- Right Side Video -->
+    <div class="side-video right-video">
+        <div class="video-overlay"></div>
+        <video autoplay loop muted class="w-full h-full object-cover opacity-20">
+            <source src="static\media\Growing Plant (1).mp4" type="video/mp4" />
+        </video>
     </div>
 
-    <!-- Suggestions Box -->
-    <div class="w-full max-w-2xl bg-green-50 border border-green-600 rounded-lg p-6 text-left shadow">
-        <h2 class="text-xl font-semibold text-green-700 mb-4">Suggestions to create something amazing!</h2>
-        <div id="suggestionOutput" class="text-gray-800 leading-relaxed">
-            <p class="text-sm text-gray-500 italic">Eg: Turn this old t-shirt into a stylish tote bag using basic sewing
-                techniques.</p>
+    <!-- Main Content -->
+    <div class="relative z-10 w-full">
+        <!-- Tagline -->
+        <h1 class="text-3xl md:text-4xl font-bold text-center mb-10">
+            Give the product a second life!
+        </h1>
+
+        <!-- Dashboard Icon (left) -->
+        <a href="dashboard.html" class="text-green-600 mb-6 self-start ml-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </a>
+
+        <!-- DIY Description Input -->
+        <div class="w-full max-w-2xl">
+            <form id="diyForm" class="mb-8">
+                <textarea id="descriptionInput" rows="4"
+                    placeholder="Describe your waste item here (e.g., old T-shirt, broken chair, plastic bottle)..."
+                    class="w-full border border-green-600 rounded px-4 py-3 text-sm focus:outline-none" required></textarea>
+
+                <button type="submit"
+                    class="mt-4 px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition">
+                    Get DIY Suggestion
+                </button>
+            </form>
+        </div>
+
+        <!-- Suggestions Box -->
+        <div class="w-full max-w-2xl bg-green-50 border border-green-600 rounded-lg p-6 text-left shadow">
+            <h2 class="text-xl font-semibold text-green-700 mb-4">Suggestions to create something amazing!</h2>
+            <div id="suggestionOutput" class="text-gray-800 leading-relaxed">
+                <p class="text-sm text-gray-500 italic">Eg: Turn this old t-shirt into a stylish tote bag using basic sewing
+                    techniques.</p>
+            </div>
         </div>
     </div>
 

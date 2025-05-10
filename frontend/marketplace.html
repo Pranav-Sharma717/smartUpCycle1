@@ -6,85 +6,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DIY Marketplace | smartUpCycle</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .side-video {
+            position: fixed;
+            top: 0;
+            width: 25vw;
+            height: 100vh;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .left-video {
+            left: 0;
+        }
+        .right-video {
+            right: 0;
+        }
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(240, 249, 244, 0.9), transparent);
+        }
+        .right-video .video-overlay {
+            background: linear-gradient(to left, rgba(240, 249, 244, 0.9), transparent);
+        }
+    </style>
 </head>
 
 <body class="bg-gradient-to-br from-blue-50 to-green-50 text-black font-sans min-h-screen px-4 py-8">
-
-    <!-- Title -->
-    <h1 class="text-3xl font-bold text-center text-green-600 mb-10">
-        Share Your Creations with the World!
-    </h1>
-    <!-- Dashboard Icon (left) -->
-    <a href="dashboard.html" class="text-green-600">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-            stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-    </a>
-    <!-- Background Video or GIF -->
-    <div class="absolute inset-0 -z-10 opacity-20 h-[600px] overflow-hidden">
-        <video autoplay loop muted class="w-full h-full object-cover">
-            <source src="static/media/recycle-bg.mp4" type="video/mp4" />
+    <!-- Left Side Video -->
+    <div class="side-video left-video">
+        <div class="video-overlay"></div>
+        <video autoplay loop muted class="w-full h-full object-cover opacity-20">
+            <source src="static\media\Growing Plant (1).mp4" type="video/mp4" />
         </video>
     </div>
 
-    <!--Background video for the right side-->
-
-
-    <!-- Upload DIY Post Box -->
-    <div class="max-w-3xl mx-auto bg-green-50 border border-green-600 rounded-lg p-6 mb-10 shadow">
-        <h2 class="text-xl font-semibold text-green-700 mb-4">Upload Your Upcycled DIY</h2>
-
-        <form id="diyForm" class="space-y-4" enctype="multipart/form-data">
-            <input type="text" id="diyTitle" name="title" placeholder="Title of your DIY"
-                class="w-full border border-green-600 rounded px-4 py-2 focus:outline-none" required />
-
-            <textarea id="diyDescription" name="description" placeholder="Tell us how you made it..."
-                class="w-full border border-green-600 rounded px-4 py-2 focus:outline-none" rows="4"
-                required></textarea>
-
-            <input type="file" id="diyFile" name="file" class="block w-full text-sm text-gray-600" required />
-
-            <button type="submit"
-                class="px-6 py-3 bg-green-600 text-white rounded-full font-semibold hover:bg-green-700 transition">
-                Post DIY
-            </button>
-        </form>
+    <!-- Right Side Video -->
+    <div class="side-video right-video">
+        <div class="video-overlay"></div>
+        <video autoplay loop muted class="w-full h-full object-cover opacity-20">
+            <source src="static\media\Growing Plant.mp4" type="video/mp4" />
+        </video>
     </div>
 
-    <!-- Marketplace Feed -->
-    <div class="max-w-4xl mx-auto space-y-8">
+    <!-- Main Content -->
+    <div class="relative z-10 max-w-4xl mx-auto">
+        <!-- Title -->
+        <h1 class="text-3xl font-bold text-center text-green-600 mb-10">
+            Share Your Creations with the World!
+        </h1>
+        <!-- Dashboard Icon (left) -->
+        <a href="dashboard.html" class="text-green-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </a>
 
-        <!-- Sample Post 1 -->
-        <div class="border border-green-600 rounded-lg p-6 shadow-md bg-green-50">
-            <div class="flex flex-col sm:flex-row gap-4">
-                <img src="static\media\image5.jpg" alt="DIY Tote Bag"
-                    class="w-full sm:w-60 h-40 object-cover rounded-md" />
-                <div>
-                    <h3 class="text-xl font-semibold text-green-700">Old T-Shirt → Tote Bag</h3>
-                    <p class="text-gray-800 mt-2">I transformed my old college tee into a sturdy tote bag using a few
-                        cuts and stitches!</p>
+        <!-- Upload DIY Post Box -->
+        <div class="max-w-3xl mx-auto bg-green-50 border border-green-600 rounded-lg p-6 mb-10 shadow">
+            <h2 class="text-xl font-semibold text-green-700 mb-4">Upload Your Upcycled DIY</h2>
 
-                    <p>Designed with enthusiasm by <b>Gaurav Mishra</b></p>
-                </div>
-            </div>
+            <form id="diyForm" class="space-y-4" enctype="multipart/form-data">
+                <input type="text" id="diyTitle" name="title" placeholder="Title of your DIY"
+                    class="w-full border border-green-600 rounded px-4 py-2 focus:outline-none" required />
+
+                <textarea id="diyDescription" name="description" placeholder="Tell us how you made it..."
+                    class="w-full border border-green-600 rounded px-4 py-2 focus:outline-none" rows="4"
+                    required></textarea>
+
+                <input type="file" id="diyFile" name="file" class="block w-full text-sm text-gray-600" required />
+
+                <button type="submit"
+                    class="px-6 py-3 bg-green-600 text-white rounded-full font-semibold hover:bg-green-700 transition">
+                    Post DIY
+                </button>
+            </form>
         </div>
 
-        <!-- Sample Post 2 -->
-        <div class="border border-green-600 rounded-lg p-6 shadow-md bg-green-50">
-            <div class="flex flex-col sm:flex-row gap-4">
-                <img src="static\media\image1.jpg" alt="DIY Planter"
-                    class="w-full sm:w-60 h-40 object-cover rounded-md" />
-                <div>
-                    <h3 class="text-xl font-semibold text-green-700">Plastic Bottle Planter</h3>
-                    <p class="text-gray-800 mt-2">Used an old bottle, painted it green, and turned it into a hanging
-                        planter for herbs!</p>
-                    <p>Made By :<b>Mahima Sharma</b> :) </p>
+        <!-- Marketplace Feed -->
+        <div class="max-w-4xl mx-auto space-y-8">
+
+            <!-- Sample Post 1 -->
+            <div class="border border-green-600 rounded-lg p-6 shadow-md bg-green-50">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <img src="static\media\image5.jpg" alt="DIY Tote Bag"
+                        class="w-full sm:w-60 h-40 object-cover rounded-md" />
+                    <div>
+                        <h3 class="text-xl font-semibold text-green-700">Old T-Shirt → Tote Bag</h3>
+                        <p class="text-gray-800 mt-2">I transformed my old college tee into a sturdy tote bag using a few
+                            cuts and stitches!</p>
+
+                        <p>Designed with enthusiasm by <b>Gaurav Mishra</b></p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- More user posts can be appended here -->
+            <!-- Sample Post 2 -->
+            <div class="border border-green-600 rounded-lg p-6 shadow-md bg-green-50">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <img src="static\media\image1.jpg" alt="DIY Planter"
+                        class="w-full sm:w-60 h-40 object-cover rounded-md" />
+                    <div>
+                        <h3 class="text-xl font-semibold text-green-700">Plastic Bottle Planter</h3>
+                        <p class="text-gray-800 mt-2">Used an old bottle, painted it green, and turned it into a hanging
+                            planter for herbs!</p>
+                        <p>Made By :<b>Mahima Sharma</b> :) </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More user posts can be appended here -->
+        </div>
     </div>
     <script>
         document.getElementById("diyForm").addEventListener("submit", function (e) {

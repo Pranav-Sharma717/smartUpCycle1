@@ -6,139 +6,184 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carbon Analysis | smartUpCycle</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .side-video {
+            position: fixed;
+            top: 0;
+            width: 25vw;
+            height: 100vh;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .left-video {
+            left: 0;
+        }
+        .right-video {
+            right: 0;
+        }
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(240, 249, 244, 0.9), transparent);
+        }
+        .right-video .video-overlay {
+            background: linear-gradient(to left, rgba(240, 249, 244, 0.9), transparent);
+        }
+    </style>
 </head>
 
 <body class="bg-gradient-to-br from-blue-50 to-green-50 text-black font-sans min-h-screen px-4 py-10">
 
-    <!-- Page Title -->
-    <h1 class="text-3xl md:text-4xl font-bold text-center mb-12 text-green-600">
-        Understand & Reduce Your Carbon Footprint
-    </h1>
-    <!-- Dashboard Icon (left) -->
-    <a href="dashboard.html" class="text-green-600">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-            stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-    </a>
-    <!-- Background Video or GIF -->
-    <div class="absolute inset-0 -z-10 opacity-20 h-[600px] overflow-hidden">
-        <video autoplay loop muted class="w-full h-full object-cover">
-            <source src="static/media/recycle-bg.mp4" type="video/mp4" />
+    <!-- Left Side Video -->
+    <div class="side-video left-video">
+        <div class="video-overlay"></div>
+        <video autoplay loop muted class="w-full h-full object-cover opacity-20">
+            <source src="static/media/seed-to-tree.mp4" type="video/mp4" />
         </video>
     </div>
 
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+    <!-- Right Side Video -->
+    <div class="side-video right-video">
+        <div class="video-overlay"></div>
+        <video autoplay loop muted class="w-full h-full object-cover opacity-20">
+            <source src="static/media/seed-to-tree.mp4" type="video/mp4" />
+        </video>
+    </div>
 
-        <!-- Carbon Footprint Calculator -->
-        <div class="bg-green-50 border border-green-600 rounded-lg p-6 shadow-md">
-            <h2 class="text-2xl font-semibold text-green-700 mb-4">Calculate Your Carbon Footprint</h2>
-
-            <form id="carbonForm" class="space-y-4">
-                <div>
-                    <label for="electricity" class="block font-medium mb-1">Monthly Electricity Usage (kWh):</label>
-                    <input type="number" id="electricity" placeholder="e.g., 350"
-                        class="w-full border border-green-600 rounded px-4 py-2 focus:outline-none" />
-                </div>
-
-                <div>
-                    <label for="meals" class="block font-medium mb-1">Weekly Non-Vegetarian Meals:</label>
-                    <input type="number" id="meals" placeholder="e.g., 10"
-                        class="w-full border border-green-600 rounded px-4 py-2 focus:outline-none" />
-                </div>
-
-                <div>
-                    <label for="travel" class="block font-medium mb-1">Weekly Car Travel (in km):</label>
-                    <input type="number" id="travel" placeholder="e.g., 100"
-                        class="w-full border border-green-600 rounded px-4 py-2 focus:outline-none" />
-                </div>
-
-                <button type="submit"
-                    class="mt-4 px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition">
-                    Analyze Footprint
-                </button>
-            </form>
-
-            <!-- Placeholder for result -->
-            <div id="carbonResult" class="mt-6 text-green-700 font-medium">
-                <!-- Calculated CO₂ result will be displayed here -->
-                <!-- Example: Your estimated monthly footprint is 200kg CO₂ -->
-            </div>
+    <!-- Main Content -->
+    <div class="relative z-10">
+        <!-- Page Title -->
+        <h1 class="text-3xl md:text-4xl font-bold text-center mb-12 text-green-600">
+            Understand & Reduce Your Carbon Footprint
+        </h1>
+        <!-- Dashboard Icon (left) -->
+        <a href="dashboard.html" class="text-green-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </a>
+        <!-- Background Video or GIF -->
+        <div class="absolute inset-0 -z-10 opacity-20 h-[600px] overflow-hidden">
+            <video autoplay loop muted class="w-full h-full object-cover">
+                <source src="static/media/recycle-bg.mp4" type="video/mp4" />
+            </video>
         </div>
 
-        <!-- AI Chatbot Suggestions -->
-        <div class="bg-green-50 border border-green-600 rounded-lg p-6 shadow-md">
-            <h2 class="text-2xl font-semibold text-green-700 mb-4">Smarter Eco Alternatives 🌱</h2>
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
 
-            <p class="text-gray-800 mb-4">
-                Based on your footprint, here are personalized tips to reduce your carbon output.
-                These suggestions are powered by our eco-friendly AI chatbot.
-            </p>
-            <!-- Output area for dynamic JS content -->
-            <div id="chatbotSuggestions" class="bg-white border border-green-600 rounded p-4 text-sm leading-relaxed">
-                <!-- Suggestions will appear here -->
+            <!-- Carbon Footprint Calculator -->
+            <div class="bg-green-50 border border-green-600 rounded-lg p-6 shadow-md">
+                <h2 class="text-2xl font-semibold text-green-700 mb-4">Calculate Your Carbon Footprint</h2>
+
+                <form id="carbonForm" class="space-y-4">
+                    <div>
+                        <label for="electricity" class="block font-medium mb-1">Monthly Electricity Usage (kWh):</label>
+                        <input type="number" id="electricity" placeholder="e.g., 350"
+                            class="w-full border border-green-600 rounded px-4 py-2 focus:outline-none" />
+                    </div>
+
+                    <div>
+                        <label for="meals" class="block font-medium mb-1">Weekly Non-Vegetarian Meals:</label>
+                        <input type="number" id="meals" placeholder="e.g., 10"
+                            class="w-full border border-green-600 rounded px-4 py-2 focus:outline-none" />
+                    </div>
+
+                    <div>
+                        <label for="travel" class="block font-medium mb-1">Weekly Car Travel (in km):</label>
+                        <input type="number" id="travel" placeholder="e.g., 100"
+                            class="w-full border border-green-600 rounded px-4 py-2 focus:outline-none" />
+                    </div>
+
+                    <button type="submit"
+                        class="mt-4 px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition">
+                        Analyze Footprint
+                    </button>
+                </form>
+
+                <!-- Placeholder for result -->
+                <div id="carbonResult" class="mt-6 text-green-700 font-medium">
+                    <!-- Calculated CO₂ result will be displayed here -->
+                    <!-- Example: Your estimated monthly footprint is 200kg CO₂ -->
+                </div>
             </div>
 
+            <!-- AI Chatbot Suggestions -->
+            <div class="bg-green-50 border border-green-600 rounded-lg p-6 shadow-md">
+                <h2 class="text-2xl font-semibold text-green-700 mb-4">Smarter Eco Alternatives 🌱</h2>
+
+                <p class="text-gray-800 mb-4">
+                    Based on your footprint, here are personalized tips to reduce your carbon output.
+                    These suggestions are powered by our eco-friendly AI chatbot.
+                </p>
+                <!-- Output area for dynamic JS content -->
+                <div id="chatbotSuggestions" class="bg-white border border-green-600 rounded p-4 text-sm leading-relaxed">
+                    <!-- Suggestions will appear here -->
+                </div>
+
+            </div>
+
+            <!-- Output suggestion placeholder -->
+            <script>
+                document.getElementById("carbonForm").addEventListener("submit", function (e) {
+                    e.preventDefault();
+
+                    const electricity = document.getElementById("electricity").value;
+                    const meals = document.getElementById("meals").value;
+                    const travel = document.getElementById("travel").value;
+
+                    if (!electricity || !meals || !travel) {
+                        alert("Please fill all fields.");
+                        return;
+                    }
+
+                    fetch("/carbon", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            electricity: Number(electricity),
+                            meals: Number(meals),
+                            travel: Number(travel)
+                        })
+                    })
+                        .then(response => {
+                            if (!response.ok) throw new Error("Failed to fetch");
+                            return response.json();
+                        })
+                        .then(data => {
+                            const outputDiv = document.getElementById("chatbotSuggestions");
+                            outputDiv.innerHTML = "";
+
+                            const summary = document.createElement("p");
+                            summary.innerHTML = `<strong>Total Carbon Footprint:</strong> ${data.footprint_kg} kg CO₂/month<br>
+                                           <strong>Trees needed to offset annually:</strong> ${data.trees_to_offset}`;
+                            summary.classList.add("mb-4");
+                            outputDiv.appendChild(summary);
+
+                            for (const [category, suggestions] of Object.entries(data.suggestions)) {
+                                const categoryTitle = document.createElement("p");
+                                categoryTitle.innerHTML = `<u>${category.charAt(0).toUpperCase() + category.slice(1)} Tips:</u>`;
+                                categoryTitle.classList.add("font-semibold", "mt-3");
+                                outputDiv.appendChild(categoryTitle);
+
+                                suggestions.forEach(s => {
+                                    const tip = document.createElement("p");
+                                    tip.textContent = "• " + s;
+                                    outputDiv.appendChild(tip);
+                                });
+                            }
+                        })
+                        .catch(err => {
+                            console.error("Carbon analysis error:", err);
+                            document.getElementById("chatbotSuggestions").innerText = "Something went wrong.";
+                        });
+                });
+            </script>
+
         </div>
-
-        <!-- Output suggestion placeholder -->
-        <script>
-            document.getElementById("carbonForm").addEventListener("submit", function (e) {
-                e.preventDefault();
-
-                const electricity = document.getElementById("electricity").value;
-                const meals = document.getElementById("meals").value;
-                const travel = document.getElementById("travel").value;
-
-                if (!electricity || !meals || !travel) {
-                    alert("Please fill all fields.");
-                    return;
-                }
-
-                fetch("/carbon", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        electricity: Number(electricity),
-                        meals: Number(meals),
-                        travel: Number(travel)
-                    })
-                })
-                    .then(response => {
-                        if (!response.ok) throw new Error("Failed to fetch");
-                        return response.json();
-                    })
-                    .then(data => {
-                        const outputDiv = document.getElementById("chatbotSuggestions");
-                        outputDiv.innerHTML = "";
-
-                        const summary = document.createElement("p");
-                        summary.innerHTML = `<strong>Total Carbon Footprint:</strong> ${data.footprint_kg} kg CO₂/month<br>
-                                       <strong>Trees needed to offset annually:</strong> ${data.trees_to_offset}`;
-                        summary.classList.add("mb-4");
-                        outputDiv.appendChild(summary);
-
-                        for (const [category, suggestions] of Object.entries(data.suggestions)) {
-                            const categoryTitle = document.createElement("p");
-                            categoryTitle.innerHTML = `<u>${category.charAt(0).toUpperCase() + category.slice(1)} Tips:</u>`;
-                            categoryTitle.classList.add("font-semibold", "mt-3");
-                            outputDiv.appendChild(categoryTitle);
-
-                            suggestions.forEach(s => {
-                                const tip = document.createElement("p");
-                                tip.textContent = "• " + s;
-                                outputDiv.appendChild(tip);
-                            });
-                        }
-                    })
-                    .catch(err => {
-                        console.error("Carbon analysis error:", err);
-                        document.getElementById("chatbotSuggestions").innerText = "Something went wrong.";
-                    });
-            });
-        </script>
+    </div>
 
 </body>
 
