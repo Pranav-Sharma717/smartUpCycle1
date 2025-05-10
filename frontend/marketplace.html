@@ -2,11 +2,23 @@
 <html lang="en">
 
 <head>
+    <!-- 
+        Marketplace page - this is where the magic happens!
+        Users can share their upcycling creations and get inspired
+        by others. The side videos add a nice touch of nature
+        without overwhelming the content.
+    -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DIY Marketplace | smartUpCycle</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* 
+            Side video containers - had to play around with the
+            positioning and z-index to get the perfect layering.
+            The gradient overlays help blend the videos into the
+            background naturally.
+        */
         .side-video {
             position: fixed;
             top: 0;
@@ -15,17 +27,26 @@
             overflow: hidden;
             z-index: -1;
         }
+
         .left-video {
             left: 0;
         }
+
         .right-video {
             right: 0;
         }
+
+        /* 
+            Gradient overlays - spent some time tweaking these
+            to get the perfect fade effect. Wanted the videos to
+            blend seamlessly with the main content area.
+        */
         .video-overlay {
             position: absolute;
             inset: 0;
             background: linear-gradient(to right, rgba(240, 249, 244, 0.9), transparent);
         }
+
         .right-video .video-overlay {
             background: linear-gradient(to left, rgba(240, 249, 244, 0.9), transparent);
         }
@@ -33,7 +54,11 @@
 </head>
 
 <body class="bg-gradient-to-br from-blue-50 to-green-50 text-black font-sans min-h-screen px-4 py-8">
-    <!-- Left Side Video -->
+    <!-- 
+        Left side video - the growing tree animation adds a nice
+        touch of nature to the marketplace. Had to adjust the opacity
+        several times to get it just right.
+    -->
     <div class="side-video left-video">
         <div class="video-overlay"></div>
         <video autoplay loop muted class="w-full h-full object-cover opacity-20">
@@ -41,7 +66,11 @@
         </video>
     </div>
 
-    <!-- Right Side Video -->
+    <!-- 
+        Right side video - mirrored the left side for balance.
+        The gradient overlay helps create a natural transition
+        to the main content area.
+    -->
     <div class="side-video right-video">
         <div class="video-overlay"></div>
         <video autoplay loop muted class="w-full h-full object-cover opacity-20">
@@ -49,7 +78,11 @@
         </video>
     </div>
 
-    <!-- Main Content -->
+    <!-- 
+        Main content area - kept it clean and focused on the
+        user-generated content. The max-width helps maintain
+        readability on larger screens.
+    -->
     <div class="relative z-10 max-w-4xl mx-auto">
         <!-- Title -->
         <h1 class="text-3xl font-bold text-center text-green-600 mb-10">
@@ -57,8 +90,8 @@
         </h1>
         <!-- Dashboard Icon (left) -->
         <a href="dashboard.html" class="text-green-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                stroke-width="2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
         </a>
@@ -94,7 +127,8 @@
                         class="w-full sm:w-60 h-40 object-cover rounded-md" />
                     <div>
                         <h3 class="text-xl font-semibold text-green-700">Old T-Shirt → Tote Bag</h3>
-                        <p class="text-gray-800 mt-2">I transformed my old college tee into a sturdy tote bag using a few
+                        <p class="text-gray-800 mt-2">I transformed my old college tee into a sturdy tote bag using a
+                            few
                             cuts and stitches!</p>
 
                         <p>Designed with enthusiasm by <b>Gaurav Mishra</b></p>

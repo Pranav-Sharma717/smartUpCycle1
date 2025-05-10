@@ -104,7 +104,7 @@ def diy_suggestions():
         },
         "old t-shirt": {
             "text": "Turn it into a no-sew tote bag by cutting and knotting the bottom!",
-            "image": "static\media\image5.jpgg"
+            "image": "static\media\image5.jpg"
         },
         "old pant": {
             "text": "Cut the legs into pockets for a tool belt or stitch a denim pouch.",

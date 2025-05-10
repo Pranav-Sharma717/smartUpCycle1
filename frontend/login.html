@@ -2,11 +2,22 @@
 <html lang="en">
 
 <head>
+    <!-- 
+        Login page - wanted to keep it simple but engaging.
+        The growing tree animation in the background took some
+        tweaking to get the opacity just right. Too much and it
+        distracts from the form, too little and it's pointless!
+    -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login | smartUpCycle</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* 
+            Basic link styling - keeping it clean and simple.
+            Had to override some default behaviors that were
+            causing weird hover states.
+        */
         a {
             text-decoration: none;
         }
@@ -15,6 +26,11 @@
         a:active {
             color: inherit;
         }
+        /* 
+            The background GIF container - spent ages getting
+            the gradient overlay right. Wanted it to fade smoothly
+            into the form area without any harsh edges.
+        */
         .bg-gif {
             position: fixed;
             top: 0;
@@ -25,6 +41,11 @@
             opacity: 0.15;
             background: linear-gradient(to bottom, rgba(240, 249, 244, 0.9), rgba(240, 249, 244, 0.7));
         }
+        /* 
+            Made sure the iframe fills the container properly.
+            Had some issues with the GIF not scaling correctly
+            on different screen sizes.
+        */
         .bg-gif iframe {
             width: 100%;
             height: 100%;
@@ -34,7 +55,12 @@
 </head>
 
 <body class="bg-gradient-to-br from-blue-50 to-green-50 text-black font-sans flex items-center justify-center min-h-screen px-4">
-    <!-- Background GIF -->
+    <!-- 
+        The growing tree animation - found this perfect GIF that
+        really captures the essence of growth and sustainability.
+        The opacity and gradient overlay help it blend naturally
+        with the form.
+    -->
     <div class="bg-gif">
         <div class="tenor-gif-embed" data-postid="15366028" data-share-method="host" data-aspect-ratio="1" data-width="100%">
             <a href="https://tenor.com/view/tree-arbre-green-grow-growing-gif-15366028">Tree Arbre GIF</a>
@@ -42,6 +68,12 @@
         <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
     </div>
 
+    <!-- 
+        Login form container - added a subtle blur effect to make
+        it pop against the animated background. The semi-transparent
+        background helps maintain readability while keeping the
+        design light and airy.
+    -->
     <div class="w-full max-w-md p-8 border border-green-600 rounded-xl shadow-md bg-green-50/90 backdrop-blur-sm">
         <h2 class="text-2xl font-bold text-center text-green-700 mb-6">Login to smartUpCycle</h2>
 

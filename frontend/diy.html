@@ -27,12 +27,15 @@
             overflow: hidden;
             z-index: -1;
         }
+
         .left-video {
             left: 0;
         }
+
         .right-video {
             right: 0;
         }
+
         /* 
             Gradient overlays - these were a game-changer! They help
             create a natural transition between the videos and content.
@@ -44,6 +47,7 @@
             inset: 0;
             background: linear-gradient(to right, rgba(240, 249, 244, 0.9), transparent);
         }
+
         .right-video .video-overlay {
             background: linear-gradient(to left, rgba(240, 249, 244, 0.9), transparent);
         }
@@ -60,7 +64,7 @@
     <div class="side-video left-video">
         <div class="video-overlay"></div>
         <video autoplay loop muted class="w-full h-full object-cover opacity-20">
-            <source src="static/media/seed-to-tree.mp4" type="video/mp4" />
+            <source src="static\media\Growing Plant.mp4" type="video/mp4" />
         </video>
     </div>
 
@@ -73,7 +77,7 @@
     <div class="side-video right-video">
         <div class="video-overlay"></div>
         <video autoplay loop muted class="w-full h-full object-cover opacity-20">
-            <source src="static/media/seed-to-tree.mp4" type="video/mp4" />
+            <source src="static\media\Growing Plant (1).mp4" type="video/mp4" />
         </video>
     </div>
 
@@ -100,71 +104,73 @@
             add a nice touch of interactivity.
         -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Dashboard Icon (left) -->
-        <a href="dashboard.html" class="text-green-600 mb-6 self-start ml-6">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-        </a>
+            <!-- Dashboard Icon (left) -->
+            <a href="dashboard.html" class="text-green-600 mb-6 self-start ml-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </a>
 
-        <!-- DIY Description Input -->
-        <div class="w-full max-w-2xl">
-            <form id="diyForm" class="mb-8">
-                <textarea id="descriptionInput" rows="4"
-                    placeholder="Describe your waste item here (e.g., old T-shirt, broken chair, plastic bottle)..."
-                    class="w-full border border-green-600 rounded px-4 py-3 text-sm focus:outline-none" required></textarea>
+            <!-- DIY Description Input -->
+            <div class="w-full max-w-2xl">
+                <form id="diyForm" class="mb-8">
+                    <textarea id="descriptionInput" rows="4"
+                        placeholder="Describe your waste item here (e.g., old T-shirt, broken chair, plastic bottle)..."
+                        class="w-full border border-green-600 rounded px-4 py-3 text-sm focus:outline-none"
+                        required></textarea>
 
-                <button type="submit"
-                    class="mt-4 px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition">
-                    Get DIY Suggestion
-                </button>
-            </form>
-        </div>
+                    <button type="submit"
+                        class="mt-4 px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition">
+                        Get DIY Suggestion
+                    </button>
+                </form>
+            </div>
 
-        <!-- Suggestions Box -->
-        <div class="w-full max-w-2xl bg-green-50 border border-green-600 rounded-lg p-6 text-left shadow">
-            <h2 class="text-xl font-semibold text-green-700 mb-4">Suggestions to create something amazing!</h2>
-            <div id="suggestionOutput" class="text-gray-800 leading-relaxed">
-                <p class="text-sm text-gray-500 italic">Eg: Turn this old t-shirt into a stylish tote bag using basic sewing
-                    techniques.</p>
+            <!-- Suggestions Box -->
+            <div class="w-full max-w-2xl bg-green-50 border border-green-600 rounded-lg p-6 text-left shadow">
+                <h2 class="text-xl font-semibold text-green-700 mb-4">Suggestions to create something amazing!</h2>
+                <div id="suggestionOutput" class="text-gray-800 leading-relaxed">
+                    <p class="text-sm text-gray-500 italic">Eg: Turn this old t-shirt into a stylish tote bag using
+                        basic sewing
+                        techniques.</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Script to handle API call -->
-    <script>
-        document.getElementById("diyForm").addEventListener("submit", function (e) {
-            e.preventDefault();
+        <!-- Script to handle API call -->
+        <script>
+            document.getElementById("diyForm").addEventListener("submit", function (e) {
+                e.preventDefault();
 
-            const description = document.getElementById("descriptionInput").value.toLowerCase().trim();
+                const description = document.getElementById("descriptionInput").value.toLowerCase().trim();
 
-            fetch("/diy", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ description: description }),
-            })
-                .then(res => res.json())
-                .then(data => {
-                    const output = document.getElementById("suggestionOutput");
-                    const suggestionText = `<p><strong>Suggestion:</strong><br>${data.suggestion}</p>`;
-
-                    if (data.image) {
-                        const imageTag = `<img src="${data.image}" alt="DIY example" class="mt-4 w-full max-h-64 object-contain rounded shadow">`;
-                        output.innerHTML = suggestionText + imageTag;
-                    } else {
-                        output.innerHTML = suggestionText;
-                    }
+                fetch("/diy", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ description: description }),
                 })
-                .catch(err => {
-                    console.error("Error:", err);
-                    document.getElementById("suggestionOutput").innerText = "Something went wrong.";
-                });
-        });
+                    .then(res => res.json())
+                    .then(data => {
+                        const output = document.getElementById("suggestionOutput");
+                        const suggestionText = `<p><strong>Suggestion:</strong><br>${data.suggestion}</p>`;
 
-    </script>
+                        if (data.image) {
+                            const imageTag = `<img src="${data.image}" alt="DIY example" class="mt-4 w-full max-h-64 object-contain rounded shadow">`;
+                            output.innerHTML = suggestionText + imageTag;
+                        } else {
+                            output.innerHTML = suggestionText;
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Error:", err);
+                        document.getElementById("suggestionOutput").innerText = "Something went wrong.";
+                    });
+            });
+
+        </script>
 </body>
 
 </html>
