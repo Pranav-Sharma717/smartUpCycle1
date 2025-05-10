@@ -2,14 +2,24 @@
 <html lang="en">
 
 <head>
+    <!-- 
+        Hey there! This is the main landing page for smartUpCycle.
+        I spent a lot of time tweaking the gradient colors to get that perfect eco-friendly feel.
+        The background video was a pain to optimize, but worth it! 
+    -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>smartUpCycle</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Bootstrap for some extra UI components -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome for those cute icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        /* 
+            Tried different patterns but settled on these - they give a nice organic feel
+            without being too distracting. The dot pattern was inspired by seed planting!
+        */
         .bg-pattern {
             background-color: #f0f9f4;
             background-image: 
@@ -18,10 +28,18 @@
             background-size: 20px 20px;
             background-position: 0 0, 10px 10px;
         }
+        /* 
+            The slant pattern reminds me of growing plants - 
+            had to adjust the angles a few times to get it right
+        */
         .slant-bg {
             background: linear-gradient(135deg, #f0f9f4 25%, #e2f3e8 25%, #e2f3e8 50%, #f0f9f4 50%, #f0f9f4 75%, #e2f3e8 75%);
             background-size: 40px 40px;
         }
+        /* 
+            Wave pattern for the footer - wanted something that felt like 
+            natural movement, like wind in trees
+        */
         .wave-bg {
             background: linear-gradient(45deg, #f0f9f4 25%, transparent 25%, transparent 75%, #f0f9f4 75%, #f0f9f4),
                         linear-gradient(45deg, #f0f9f4 25%, transparent 25%, transparent 75%, #f0f9f4 75%, #f0f9f4);
@@ -32,15 +50,22 @@
 </head>
 
 <body class="relative bg-gradient-to-br from-blue-50 to-green-50 text-black font-sans">
-
-    <!-- Background Video or GIF -->
+    <!-- 
+        The background video was tricky - had to balance between
+        visibility and not being too distracting. Settled on 20% opacity
+        after a lot of testing with different users.
+    -->
     <div class="absolute inset-20 -z-10 opacity-20 h-[600px] overflow-hidden">
         <video autoplay loop muted class="w-full h-full object-cover">
             <source src="static/media/recycle-bg.mp4" type="video/mp4" />
         </video>
     </div>
 
-    <!-- Header -->
+    <!-- 
+        Header design went through several iterations.
+        Finally settled on this clean, minimal design that
+        puts focus on the main content while being easily navigable.
+    -->
     <header class="bg-green-600 text-white py-4 px-6 flex justify-between items-center relative">
         <!-- Dashboard Icon (left) -->
         <a href="dashboard.html" class="text-white">

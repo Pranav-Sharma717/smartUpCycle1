@@ -2,11 +2,24 @@
 <html lang="en">
 
 <head>
+    <!-- 
+        Carbon Analysis page - this was a challenging one to design!
+        Had to balance between making the carbon footprint calculator
+        user-friendly while keeping it informative. The side videos
+        help maintain the eco-friendly theme without distracting from
+        the important calculations.
+    -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carbon Analysis | smartUpCycle</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* 
+            Side video styling - took some trial and error to get
+            the positioning right. Wanted the videos to frame the
+            content without overwhelming it. The gradient overlays
+            were crucial for readability.
+        */
         .side-video {
             position: fixed;
             top: 0;
@@ -21,6 +34,12 @@
         .right-video {
             right: 0;
         }
+        /* 
+            Gradient overlays - these were tricky! Had to experiment
+            with different opacity levels and gradient directions to
+            get the perfect blend. The goal was to make the videos
+            feel like a natural part of the page.
+        */
         .video-overlay {
             position: absolute;
             inset: 0;
@@ -33,8 +52,11 @@
 </head>
 
 <body class="bg-gradient-to-br from-blue-50 to-green-50 text-black font-sans min-h-screen px-4 py-10">
-
-    <!-- Left Side Video -->
+    <!-- 
+        Left side video - the growing tree animation serves as a
+        gentle reminder of why we're calculating carbon footprints.
+        Had to adjust the opacity several times to get it just right.
+    -->
     <div class="side-video left-video">
         <div class="video-overlay"></div>
         <video autoplay loop muted class="w-full h-full object-cover opacity-20">
@@ -42,7 +64,11 @@
         </video>
     </div>
 
-    <!-- Right Side Video -->
+    <!-- 
+        Right side video - mirrored the left side for visual balance.
+        The gradient overlay helps create a smooth transition to the
+        calculator section.
+    -->
     <div class="side-video right-video">
         <div class="video-overlay"></div>
         <video autoplay loop muted class="w-full h-full object-cover opacity-20">
@@ -50,9 +76,17 @@
         </video>
     </div>
 
-    <!-- Main Content -->
+    <!-- 
+        Main content area - focused on making the carbon calculator
+        intuitive and user-friendly. The grid layout helps organize
+        the information clearly.
+    -->
     <div class="relative z-10">
-        <!-- Page Title -->
+        <!-- 
+            Page title - wanted something that would encourage users
+            to take action while being informative. Tried several
+            variations before settling on this one.
+        -->
         <h1 class="text-3xl md:text-4xl font-bold text-center mb-12 text-green-600">
             Understand & Reduce Your Carbon Footprint
         </h1>

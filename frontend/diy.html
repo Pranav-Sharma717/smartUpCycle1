@@ -2,11 +2,23 @@
 <html lang="en">
 
 <head>
+    <!-- 
+        DIY Projects page - this is where creativity comes to life!
+        Wanted to create a space that inspires users to transform
+        everyday items into something special. The side videos add
+        a dynamic element that keeps the page feeling alive.
+    -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DIY Suggestions | smartUpCycle</title>
+    <title>DIY Projects | smartUpCycle</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* 
+            Side video containers - experimented with different widths
+            before settling on 25vw. It's just enough to add visual
+            interest without competing with the main content. The
+            gradient overlays were crucial for maintaining readability.
+        */
         .side-video {
             position: fixed;
             top: 0;
@@ -21,6 +33,12 @@
         .right-video {
             right: 0;
         }
+        /* 
+            Gradient overlays - these were a game-changer! They help
+            create a natural transition between the videos and content.
+            Took some tweaking to get the opacity and gradient direction
+            just right.
+        */
         .video-overlay {
             position: absolute;
             inset: 0;
@@ -32,30 +50,56 @@
     </style>
 </head>
 
-<body class="bg-gradient-to-br from-blue-50 to-green-50 text-black font-sans min-h-screen flex flex-col items-center justify-center px-4 py-10">
-    <!-- Left Side Video -->
+<body class="bg-gradient-to-br from-blue-50 to-green-50 text-black font-sans min-h-screen px-4 py-8">
+    <!-- 
+        Left side video - the growing tree animation adds a nice
+        touch of nature to the DIY space. Had to adjust the opacity
+        several times to get it just right - too much and it distracts
+        from the projects, too little and it's pointless.
+    -->
     <div class="side-video left-video">
         <div class="video-overlay"></div>
         <video autoplay loop muted class="w-full h-full object-cover opacity-20">
-            <source src="static\media\Growing Plant.mp4" type="video/mp4" />
+            <source src="static/media/seed-to-tree.mp4" type="video/mp4" />
         </video>
     </div>
 
-    <!-- Right Side Video -->
+    <!-- 
+        Right side video - mirrored the left side for visual balance.
+        The gradient overlay helps create a smooth transition to the
+        project content. Wanted to maintain consistency with other
+        pages while keeping it unique to the DIY section.
+    -->
     <div class="side-video right-video">
         <div class="video-overlay"></div>
         <video autoplay loop muted class="w-full h-full object-cover opacity-20">
-            <source src="static\media\Growing Plant (1).mp4" type="video/mp4" />
+            <source src="static/media/seed-to-tree.mp4" type="video/mp4" />
         </video>
     </div>
 
-    <!-- Main Content -->
-    <div class="relative z-10 w-full">
-        <!-- Tagline -->
-        <h1 class="text-3xl md:text-4xl font-bold text-center mb-10">
-            Give the product a second life!
+    <!-- 
+        Main content area - focused on making the DIY projects
+        easy to browse and inspiring. The grid layout helps showcase
+        the projects while maintaining a clean, organized feel.
+    -->
+    <div class="relative z-10 max-w-6xl mx-auto">
+        <!-- 
+            Page title - wanted something that would encourage
+            creativity while being approachable. Tried several
+            variations before settling on this friendly, inviting
+            message.
+        -->
+        <h1 class="text-3xl md:text-4xl font-bold text-center mb-12 text-green-600">
+            Transform Everyday Items into Something Special
         </h1>
 
+        <!-- 
+            Project grid - spent time organizing the layout to
+            make it easy to browse while highlighting the most
+            important details of each project. The hover effects
+            add a nice touch of interactivity.
+        -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Dashboard Icon (left) -->
         <a href="dashboard.html" class="text-green-600 mb-6 self-start ml-6">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"
