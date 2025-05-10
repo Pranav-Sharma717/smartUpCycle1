@@ -2,7 +2,7 @@
 
 **Empowering individuals to upcycle creatively, reduce their carbon footprints, and build a sustainability-first community.**
 
-![smartUpCycle Banner](static/media/recycle-bg.jpg) <!-- You can replace this with a real banner -->
+
 
 ---
 
