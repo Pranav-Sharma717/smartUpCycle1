@@ -48,10 +48,8 @@ smartUpCycle is a full-stack web platform that:
 - REST APIs for DIY, carbon, auth, and marketplace modules
 - SQLAlchemy for MySQL-based user authentication
 - Custom logic for eco suggestions and emission calculations
+- API calling logic for DIY suggestions 
 
-### 🧠 AI / ML (optional / removed)
-- Original design used OpenAI GPT-3.5 for DIY suggestions
-- Replaced with switch-case logic for cost-efficiency and demo stability
 
 ### 🌐 Frontend
 - HTML, Tailwind CSS, JavaScript
