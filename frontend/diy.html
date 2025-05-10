@@ -55,6 +55,11 @@
 </head>
 
 <body class="bg-gradient-to-br from-blue-50 to-green-50 text-black font-sans min-h-screen px-4 py-8">
+    <div class="absolute inset-0 -z-10 opacity-20 h-[600px] overflow-hidden">
+        <video autoplay loop muted class="w-full h-full object-cover">
+            <source src="static/media/recycle-bg.mp4" type="video/mp4" />
+        </video>
+    </div>
     <!-- 
         Left side video - the growing tree animation adds a nice
         touch of nature to the DIY space. Had to adjust the opacity
@@ -156,13 +161,19 @@
                     .then(data => {
                         const output = document.getElementById("suggestionOutput");
                         const suggestionText = `<p><strong>Suggestion:</strong><br>${data.suggestion}</p>`;
+                        let content = suggestionText;
 
                         if (data.image) {
                             const imageTag = `<img src="${data.image}" alt="DIY example" class="mt-4 w-full max-h-64 object-contain rounded shadow">`;
-                            output.innerHTML = suggestionText + imageTag;
-                        } else {
-                            output.innerHTML = suggestionText;
+                            content += imageTag;
                         }
+
+                        if (data.tutorial) {
+                            const tutorialLink = `<p class="mt-4"><a href="${data.tutorial}" target="_blank" class="text-green-600 hover:text-green-800 underline">Watch Tutorial Video</a></p>`;
+                            content += tutorialLink;
+                        }
+
+                        output.innerHTML = content;
                     })
                     .catch(err => {
                         console.error("Error:", err);

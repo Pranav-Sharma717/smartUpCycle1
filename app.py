@@ -96,27 +96,33 @@ def diy_suggestions():
     suggestions = {
         "plastic bottle": {
             "text": "Cut it in half and make a self-watering planter or a pencil holder!",
-            "image": "static\media\image4.jpg"
+            "image": "static\media\image4.jpg",
+            "tutorial": "https://youtube.com/shorts/_IdoumClpz4?si=o7rX7a4Jqez2p4ao"
         },
         "ice cream sticks": {
             "text": "Create miniature furniture, bookmarks, or even wall art with some glue and paint.",
-            "image": "static\media\ice_cream_sticks.jpg"
+            "image": "static\media\ice_cream_sticks.jpg",
+            "tutorial": "https://youtube.com/shorts/sddGPkdvFTc?si=GQ7hpVeaX0Hv4-rR"
         },
         "old t-shirt": {
             "text": "Turn it into a no-sew tote bag by cutting and knotting the bottom!",
-            "image": "static\media\image5.jpg"
+            "image": "static\media\image5.jpg",
+            "tutorial": "https://youtube.com/shorts/B72ReAwQ2KI?si=9nKh3jNHrUrw3pQ4"
         },
         "old pant": {
             "text": "Cut the legs into pockets for a tool belt or stitch a denim pouch.",
-            "image": "static\media\Denim_pouch.jpeg"
+            "image": "static\media\Denim_pouch.jpeg",
+            "tutorial": "https://youtube.com/shorts/paKEMLhKol8?si=EVA89VkEGw8BMFrv"
         },
         "cup": {
             "text": "Paint it to make a decorative candle holder or seed starter!",
-            "image": "static\media\candle_holder.jpg"
+            "image": "static\media\candle_holder.jpg",
+            "tutorial": "https://youtube.com/shorts/z49UeB2Sk6s?si=jjRv9fuENT0L0V70"
         },
         "cups": {
             "text": "Paint them to make decorative candle holders or seed starters!",
-            "image": "static\media\seed_starter.jpeg"
+            "image": "static\media\seed_starter.jpeg",
+            "tutorial" : "https://youtube.com/shorts/hsJtEOhKy54?si=gdKj9-6zymXu1VPu"
         }
     }
 
@@ -125,7 +131,8 @@ def diy_suggestions():
     if result:
         return jsonify({
             'suggestion': result["text"],
-            'image': result["image"]
+            'image': result["image"],
+            'tutorial': result["tutorial"]  
         })
     else:
         return jsonify({
@@ -153,13 +160,13 @@ def analyze_carbon():
     except Exception as e:
         return jsonify({"error": str(e), "data": data}), 400
 
-    # 🧮 Basic emission factors
+    
     co2_electricity = electricity * 0.85
     co2_meals = meals * 2.5
     co2_travel = travel * 0.21
     co2_total = co2_electricity + co2_meals + co2_travel
 
-    # 🌿 Define sector-based suggestions
+   
     electricity_suggestions = [
         "Switch to LED bulbs",
         "Unplug devices when not in use",
