@@ -205,18 +205,20 @@ def analyze_carbon():
     })
 
 # Marketplace upload handler
-@app.route('/marketplace', methods=['POST'])
-def post_diy_item():
-    title = request.form.get('title')
-    description = request.form.get('description')
-    file = request.files.get('file')
+# @app.route('/marketplace', methods=['POST'])
+# def post_diy_item():
+#     title = request.form.get('title')
+#     description = request.form.get('description')
+#     file = request.files.get('file')
 
-    if file:
-        file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-        file.save(file_path)
+#     if file:
+#         file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+#         file.save(file_path)
 
-    return jsonify({'message': 'DIY item uploaded successfully!'})
+#     return jsonify({'message': 'DIY item uploaded successfully!'})
 
+# Note: This route is currently disabled since the frontend handles form submission client-side
+# without making server requests. Uncomment when implementing real database functionality.
 
 @app.route('/<path:filename>')
 def serve_frontend(filename):
