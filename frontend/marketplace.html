@@ -145,7 +145,7 @@
                         <h3 class="text-xl font-semibold text-green-700">Plastic Bottle Planter</h3>
                         <p class="text-gray-800 mt-2">Used an old bottle, painted it green, and turned it into a hanging
                             planter for herbs!</p>
-                        <p>Made By :<b>Mahima Sharma</b> :) </p>
+                        <p>Made By :<b>Mahima Sharma</b> </p>
                     </div>
                 </div>
             </div>
@@ -170,14 +170,15 @@
 
             // Create a new post element
             const newPost = createPostElement(title, description, fileInput.files[0]);
-            
+
             // Add the new post to the marketplace feed
             const marketplaceFeed = document.querySelector('.max-w-4xl.mx-auto.space-y-8');
+
             marketplaceFeed.insertBefore(newPost, marketplaceFeed.firstChild);
 
             // Reset the form
             document.getElementById("diyForm").reset();
-            
+
             // Show success message
             alert("DIY item posted successfully!");
         });
@@ -185,10 +186,10 @@
         function createPostElement(title, description, file) {
             const postDiv = document.createElement('div');
             postDiv.className = 'border border-green-600 rounded-lg p-6 shadow-md bg-green-50';
-            
+
             // Create image URL from the uploaded file
             const imageUrl = URL.createObjectURL(file);
-            
+
             postDiv.innerHTML = `
                 <div class="flex flex-col sm:flex-row gap-4">
                     <img src="${imageUrl}" alt="${title}" class="w-full sm:w-60 h-40 object-cover rounded-md" />
@@ -199,7 +200,7 @@
                     </div>
                 </div>
             `;
-            
+
             return postDiv;
         }
     </script>
